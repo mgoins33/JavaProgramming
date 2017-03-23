@@ -1,0 +1,142 @@
+package studenthealthservices;
+
+
+
+public class EmR {
+
+ private String name;
+    private String dateOfBirth;
+    private String reasonForVisit;
+    private double bodyTemp;
+    private double heartRate;
+    private String diagnosis;
+    private String perscribedMedicine;
+    
+    public static int totalPatients;
+    
+    // Constructors 
+    
+    public EmR() {
+        
+        totalPatients = totalPatients + 1;
+        
+    }
+    
+    public EmR(String newName, String newDateOfBirth) {
+        
+        name = newName;
+        dateOfBirth = newDateOfBirth;
+        
+        totalPatients = totalPatients + 1;  
+    }
+    
+    public EmR
+        (String newName, String newDateOfBirth, String newReasonForVisit, double newBodyTemp, double newHeartRate, String newDiagnosis, String newPerscribedMedicine) {
+        
+        name = newName;
+        dateOfBirth = newDateOfBirth;
+        reasonForVisit = newReasonForVisit;
+        bodyTemp = newBodyTemp;
+        heartRate = newHeartRate;
+        diagnosis = newDiagnosis;
+        perscribedMedicine = newPerscribedMedicine;
+        
+        totalPatients = totalPatients + 1;
+        
+    }
+    
+    // Get and set methods
+    
+    // name
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String newName) {
+        name = newName;
+    }
+    
+    // DOB 
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+    
+    public void setDateOfBirth(String newDateOfBirth) {
+        dateOfBirth = newDateOfBirth;
+    }
+    
+    // reason for visit
+    public String getReasonForVisit() {
+        return reasonForVisit;
+    }
+    
+    public void setReasonForVisit(String newReason) {
+        reasonForVisit = newReason;
+    }
+    
+    // body temp
+    public double getBodyTemp() {
+        return bodyTemp;
+    }
+    
+    public void setBodyTemp(double newBodyTemp) {
+        bodyTemp = newBodyTemp;
+    }
+    
+    // heart rate
+    public double getHeartRate() {
+        return heartRate;
+    }
+    
+    public void setHeartRate(double newHeartRate) {
+        heartRate = newHeartRate;
+    }
+    
+    // diagnosis
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+    
+    public void setDiagnosis(String newDiagnosis) {
+        diagnosis = newDiagnosis;
+    }
+    
+    // perscribed medicine
+    public String getPerscribedMedicine() {
+        return perscribedMedicine;
+    }
+    
+    public void setPerscribedMedicine(String newPerscribedMedicine) {
+        perscribedMedicine = newPerscribedMedicine;
+    }
+    
+    //  total patients
+    public static int getTotalPatients() {
+        return totalPatients;
+    }
+    
+    // Red Flags
+    public boolean redFlags() {
+        
+        if (heartRate < 60 ^ heartRate > 100) {
+            return true;
+        }else if(bodyTemp < 97.3 ^ bodyTemp > 99.1) {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    // Convert the data to string
+    public String getInfo() {
+        return 
+        "Name: " + name + 
+        "\n" + "DOB: " + dateOfBirth + 
+        "\n" + "Body Temp: " + bodyTemp + 
+        "\n" + "Heart Rate: " + heartRate + 
+        "\n" + "Reason For Visit: " + reasonForVisit  + 
+        "\n" + "Diagnosis: " + diagnosis +
+        "\n" + "Perscribed Medicine: " + perscribedMedicine;
+    }
+        
+}
