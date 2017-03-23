@@ -1,0 +1,111 @@
+
+package arrayoperations;
+
+import java.util.Random;
+
+public class ArrayOperations {
+
+    
+    public static void main(String[] args) {
+       // declares array as random 
+                Random rng = new Random(); 
+        int[] array = new int[10000]; 
+        
+        
+        // For loop for random 0 to 200
+        for (int i = 0; i < array.length; i++)
+        {
+            array[i] = rng.nextInt(200);
+        }
+        
+        
+        // sum of the array
+        int sum1 = 0; 
+        for (int i = 0; i < array.length; i++)
+        {
+            sum1 += array[i]; 
+        }
+        System.out.println("The Sum is: " + sum1);
+        
+        
+        // average sum of the array
+        int sum2 = 0; 
+        for (int i = 0; i < array.length; i++)
+        {
+            sum2 += array[i]; 
+        }
+        double average = sum2/array.length; 
+        System.out.println("The average is: " + average);
+        
+        
+        // min value
+        int min1 = array[0]; 
+        int indexMin = 0;
+        for (int i = 0; i < array.length; i++)
+        {
+            if (array[i] < min1)
+            {
+                min1 = array[i];
+                indexMin = i;
+            }
+        }
+        System.out.println("The minimum value is " + min1 + " and index is " + indexMin);
+        
+        
+        // max value
+        int max2 = array[0];
+        int indexMax = 0;
+        for (int i = 0; i < array.length; i++)
+        {
+            if (array[i] > max2)
+            {
+                max2 = array[i];
+                indexMax = i;
+            }
+        }
+        System.out.println("The maximum value is " + max2 + " and index is " + indexMax);
+        
+        
+        // even and odd numbers for if 
+        int oddnum = 0;
+        int evennum = 0;
+        for (int i = 0; i < array.length; i++)
+        {
+            if (array[i] % 2 == 0)
+            {
+                evennum++;
+            }
+            else
+            {
+                oddnum++;
+            }
+        }
+        System.out.println("The array contains " + evennum + " even numbers and " + oddnum +" odd numbers");
+        
+        
+        // sum of even and odd numbers
+        int sumeven = 0;
+        int sumodd = 0;
+        for (int i = 0; i < array.length; i++)
+        {
+            if (array[i] % 2 == 0)
+            {
+                sumeven += array[i];
+            }
+            else
+            {
+                sumodd += array[i];
+            }
+        }
+        System.out.println("The sum of the even numbers: " + sumeven);
+        System.out.println("The sum of the odd numbers: " + sumodd);
+    }
+    
+
+
+    
+    
+}
+        
+
+
