@@ -1,0 +1,263 @@
+// Mario Goins II
+// CSC 210 12/02/16
+
+
+
+package triangle;
+
+import java.util.Scanner;
+
+
+public class Triangle {
+    
+    //  Variables for the sides
+    
+    private int sideA;
+    private int sideB;
+    private int sideC;
+    
+    //  constructor
+    
+   public Triangle() {
+       
+   }
+    
+    public Triangle(int newSideA, int newSideB, int newSideC) {
+
+        sideA = newSideA;
+        sideB = newSideB;
+        sideC = newSideC;
+        
+    }
+    
+    // accessors
+    
+    public int getSideA() {
+        return sideA;
+    }
+    
+    public int getSideB() {
+        return sideB;
+    }
+    
+    public int getSideC() {
+        return sideC;
+    }
+    
+    // Mutators
+    
+    public void setSideA(int num) {
+        sideA = num;
+    }
+    
+    public void setSideB(int num) {
+        sideB = num;
+    }
+    
+    public void setSideC(int num) {
+        sideC = num;
+    }
+    
+    //  Methods for triangle type
+    
+    public boolean isScalene(Triangle triangleToCheck) {
+        
+        int checkA = triangleToCheck.getSideA();
+        int checkB = triangleToCheck.getSideB();
+        int checkC = triangleToCheck.getSideC();
+        
+        if (checkA == checkB ^ checkB == checkC ^ checkA == checkC) {
+            
+            System.out.println("Scalene Triangle: False");
+            return false;
+            
+        } else {
+            
+            System.out.println("Scalene Triangle: True");
+            return true;
+        }
+        
+    }
+    
+    public boolean isRight(Triangle triangleToCheck) {
+        
+        int checkA = triangleToCheck.getSideA();
+        int checkB = triangleToCheck.getSideB();
+        int checkC = triangleToCheck.getSideC();
+        
+        if (Math.pow(checkA,2) + Math.pow(checkB,2) == Math.pow(checkC,2)) {
+            
+            System.out.println("Right Triangle: True");
+            return true;
+            
+        } else {
+            
+            System.out.println("Right Triangle: False");
+            return false;
+        }
+        
+    }
+    
+    public boolean isIsosceles(Triangle triangleToCheck) {
+        
+        int checkA = triangleToCheck.getSideA();
+        int checkB = triangleToCheck.getSideB();
+        int checkC = triangleToCheck.getSideC();
+        
+        if (checkA == checkB || checkA == checkC || checkB == checkC) {
+            
+            System.out.println("Isosceles Triangle: True");
+            return true;
+            
+        } else {
+            
+            System.out.println("Isosceles Triangle: False");
+            return false;
+        }
+        
+    }
+    
+    public boolean isEquilateral(Triangle triangleToCheck) {
+        
+        int checkA = triangleToCheck.getSideA();
+        int checkB = triangleToCheck.getSideB();
+        int checkC = triangleToCheck.getSideC();
+        
+        if (checkA == checkB && checkB == checkC) {
+            
+            System.out.println("Equilateral Triangle: True");
+            return true;
+            
+        } else {
+            
+            System.out.println("Equilateral Triangle: False");
+            return false;
+        }
+        
+    }
+    
+    public boolean isValid(Triangle triangleToCheck) {
+        
+        int checkA = triangleToCheck.getSideA();
+        int checkB = triangleToCheck.getSideB();
+        int checkC = triangleToCheck.getSideC();
+        
+        if (checkA + checkB <= checkC) {
+            
+            System.out.println("Valid Triangle: False");
+            return false;
+            
+        } else {
+            
+            System.out.println("Valid Triangle: True");
+            return true;
+            
+        }
+        
+    }
+    
+    // Method for user input
+    
+    public static int getUserSide(String sideLabel) {
+        
+        System.out.print("Enter the length of side " + sideLabel + ". (Must be greater than zero!): ");
+        
+        Scanner scanner = new Scanner(System.in);
+        int userSide = 0;
+        
+        // Loop for triangle input being invalid
+        while (userSide <= 0) {
+
+            if (scanner.hasNextInt()) {
+
+                userSide = scanner.nextInt();
+
+                if (userSide > 0) {
+
+                    return userSide;
+
+                } else {
+
+                    // Choice out of range
+                    System.out.println("Side length must be greater than zero!");
+                    System.out.println("");
+
+                }
+
+            } else {
+
+                // Choice is not an int
+                System.out.println("Invalid length! Try again.");
+                System.out.println("");
+                scanner.next();
+
+            }
+
+        }
+        
+        return userSide;
+        
+    }
+    
+    // Method for user choice
+    
+    public static int userChoice() {
+        
+        System.out.print("Read in a new triangle? (-1 for no, 1 for yes):");
+
+        int userChoice = 0;
+        Scanner scanner = new Scanner(System.in);
+
+        // Loop  playerChoice is invalid
+        while (userChoice != -1 || userChoice != 1) {
+
+            if (scanner.hasNextInt()) {
+
+                userChoice = scanner.nextInt();
+
+                if (userChoice == -1 || userChoice == 1) {
+
+                    return userChoice;
+
+                } else {
+
+                    // out of range
+                    System.out.print("Enter a valid choice! (-1 for no, 1 for yes):");
+
+                }
+
+            } else {
+
+                // Choice is not an int
+                System.out.print("Enter a valid choice! (-1 for no, 1 for yes):");
+                scanner.next();
+            }
+
+        }
+
+        return userChoice;
+    }
+    
+    public static void main(String[] args) {
+        
+        while (true) {
+            
+            int userSideA = getUserSide("A");
+            int userSideB = getUserSide("B");
+            int userSideC = getUserSide("C");
+
+            Triangle newTriangle = new Triangle(userSideA, userSideB, userSideC);
+            newTriangle.isValid(newTriangle);
+            newTriangle.isRight(newTriangle);
+            newTriangle.isScalene(newTriangle);
+            newTriangle.isIsosceles(newTriangle);
+            newTriangle.isEquilateral(newTriangle);
+            
+            if (userChoice() < 0) {
+                break;
+            }
+            
+        }
+        
+    }
+    
