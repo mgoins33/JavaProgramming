@@ -1,0 +1,42 @@
+package fallingobject;
+/* English Description
+/*This program computes the distance that an object will fall under Earth's 
+gravity . Using the equation x(t) = 0.5 *at^2 +vt +x.
+The variables are a= -9.8 , t = 15, v = 0, and x= 0.
+The variables are casted as doubles and variable z
+is declared as the final value of z = 0.5 * a*(t*t) + (v*t)+x;
+Then z is printed out as "The object falls under Earth's 
+gravity as:"+ z. /*
+
+/**
+ *
+ * @author Home
+ */
+public class FallingObject {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        double a = -9.8;
+        double t = 15;
+        double v = 0;
+        double x = 0;
+        double z = 0;
+        
+        z = 0.5 * a*(t*t) + (v*t)+x;
+        
+        System.out.println("The object falls under Earth's gravity "
+                + "at :" + z);
+        
+        
+        
+        
+        
+        
+                
+        
+    }
+    
+}
