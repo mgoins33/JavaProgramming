@@ -1,0 +1,48 @@
+// Mario Goins CSC 210 
+
+package studenthealthservices;
+
+
+ 
+public class StudentHealthServices {
+
+   
+    
+    public static void main(String[] args) {
+          EmR[] patients = new EmR[5];
+       
+       System.out.println("Total Patients: " + EmR.getTotalPatients());
+       
+       //patient table shows the visits of 3 out 5 patients. last 2 are made for fillers
+       patients[0] = new EmR("James D. Yancey ", "October 21st, 1990", "Foot pain", 100.1, 86.0, "Minor cut between toes", "Painkillers");
+       patients[1] = new EmR("Alfred R. Hitchcock", "August 8th, 1989", "Headache", 102.2, 95.1, "Common cold, lack of sleep", "Rest");
+       patients[2] = new EmR("Calvin C. Broadus", "November 1st, 1991", "Difficulty breathing", 100.1, 88.2, "Inflamation from allergies", "Allergy medicine");
+       patients[3] = new EmR("Robert E. Lee", "June 15th, 1997");
+       patients[4] = new EmR("Jerry L. Lewis", "May 20th, 1998");
+       
+       System.out.println("Total Patients: " + EmR.getTotalPatients());
+       
+       System.out.println("");
+       System.out.println("----------");
+       System.out.println("Patient Records");
+       System.out.println("----------");
+       
+       // iterate through patients table and shows info
+       for (int i = 0; i < patients.length - 2; i = i + 1) {
+           
+           System.out.println("");
+           System.out.println("Patient ID: " + (i + 1));
+           System.out.println("Name: " + patients[i].getInfo());
+           
+       }
+       
+       System.out.println("");
+        
+    }
+    
+}
+
+        
+    
+    
+
